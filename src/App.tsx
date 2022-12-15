@@ -9,8 +9,8 @@ const App = () => {
             <PageTitle title='This is APP component'/>
             <PageTitle title='Hello my friend'/>
             <Rating value={2}/>
-            <Accordion titleValue='First Accordion' collapsedValue={true}/>
-            <Accordion titleValue='Second Accordion' collapsedValue={false}/>
+            <Accordion titleValue='--Menu--' collapsedValue={true}/>
+            <Accordion titleValue='--Users--' collapsedValue={false}/>
             <Rating value={4}/>
         </div>
     );

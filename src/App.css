@@ -1,3 +1,7 @@
 ul li {
   list-style-type: georgian;
 }
+.App {
+  width: 600px;
+  margin: 2px auto;
+}

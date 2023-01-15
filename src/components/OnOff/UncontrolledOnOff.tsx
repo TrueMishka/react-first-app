@@ -1,8 +1,13 @@
 import React, {useState, MouseEvent} from 'react';
 
-export const UnControlledOnOff = () => {
+type PropsType = {
+    defaultOn?: boolean
+    onChange: (on: boolean) => void
+}
 
-    const [on, setOn] = useState(false);
+export const UncontrolledOnOff:React.FC<PropsType> = ({defaultOn, onChange}) => {
+
+    const [on, setOn] = useState(defaultOn ? defaultOn : false);
 
     const onStyle = {
         width: '30px',

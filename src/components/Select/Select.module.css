@@ -1,0 +1,26 @@
+.select {
+    width: 100px;
+    border: 1px solid #9ea7af;
+    border-radius: 5px;
+    padding: 5px;
+}
+.select:hover {
+    /*border: 1px solid black;*/
+}
+.selectTitle {
+    cursor: pointer;
+    border-bottom: 1px solid #9ea7af;
+}
+.selectTitle:hover {
+    /*border-bottom: 1px solid black;*/
+}
+.selectOption {
+    /*border: 0px solid #9ea7af;
+    border-radius: 5px;*/
+    cursor: pointer;
+}
+.selectOptionItem:hover {
+    border: 1px solid #9ea7af;
+    border-radius: 5px;
+    padding: 2px;
+}

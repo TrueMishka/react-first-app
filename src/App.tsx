@@ -6,6 +6,7 @@ import {OnOff} from "./components/OnOff/OnOff";
 import UnControlledAccordion from "./components/Accordion/UnControlledAccordion";
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
 import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+import {Select} from "./components/Select/Select";
 
 const App = () => {
 
@@ -13,16 +14,16 @@ const App = () => {
     const [collapsedValue, setCollapsedValue] = useState<boolean>(true)
     const [onValue, setOnValue] = useState(true);
     const items: ItemType[] = [
-        {title: 'Mishka', id: 1},
-        {title: 'Dimych', id: 2},
-        {title: 'Sveta', id: 3},
+        {value: 1, title: 'Mishka'},
+        {value: 2, title: 'Dimych'},
+        {value: 3, title: 'Sveta'},
     ]
 
     return (
         <div className={'App'}>
             <PageTitle title='This is APP component'/>
             <h4>*----Controlled component----*</h4>
-            <Accordion titleValue='--Menu--' collapsedValue={collapsedValue} onClick={setCollapsedValue} items={items}/>
+            <Accordion titleValue='--Menu--' collapsedValue={collapsedValue} onChange={() => setCollapsedValue(!collapsedValue)} onClick={() => alert('hi')} items={items}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <OnOff onValue={onValue} setOnValue={setOnValue}/>
             <OnOff onValue={onValue} setOnValue={setOnValue}/>
@@ -34,10 +35,8 @@ const App = () => {
             <UncontrolledOnOff defaultOn={true} onChange={() => {}}/>
             <UncontrolledOnOff defaultOn={true} onChange={() => {}}/>
             <UncontrolledOnOff defaultOn={true} onChange={() => {}}/>
-            <h4>*----Story book----* ?????????????</h4>
-            <h4>*----Uncontrolled input----*</h4>
-            <h4>*----Controlled input, FLUX----*</h4>
-            <h4>*----Accordion with items inside props----*</h4>
+            <h4>*--------*</h4>
+            <Select value={'none'} onChange={value => {}} items={items}/>
         </div>
     );
 }

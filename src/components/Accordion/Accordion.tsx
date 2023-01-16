@@ -1,8 +1,8 @@
 import React from "react";
 
 export type ItemType = {
+    value: any
     title: string
-    id: number
 }
 export type AccordionPropsType = {
     titleValue: string
@@ -10,21 +10,21 @@ export type AccordionPropsType = {
      * Elements that are showed when is opened. Each item should be ItemType
      */
     collapsedValue: boolean
-    items: ItemType[]
+    onChange: () => void
     onClick: (value: any) => void
+    items: ItemType[]
 }
 
 const Accordion = (props: AccordionPropsType) => {
-    const onClickTitleHandler = () => {
-        props.onClick(!props.collapsedValue)
-    }
     return (
         <div>
-            <AccordionTitle title={props.titleValue} onChange={onClickTitleHandler}/>
-            {!props.collapsedValue && <AccordionBody items={props.items}/>}
+            <AccordionTitle title={props.titleValue} onChange={props.onChange}/>
+            {!props.collapsedValue && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     );
 }
+
+// AccordionTitle
 
 type AccordionTitlePropsType = {
     title: string
@@ -36,17 +36,18 @@ const AccordionTitle = (props: AccordionTitlePropsType) => {
     return <h3 onClick={(e) => props.onChange()}>-- {props.title} --</h3>
 }
 
+// AccordionBody
+
 type AccordionBodyPropsType = {
     items: ItemType[]
+    onClick: (value: any) => void
 }
 const AccordionBody = (props: AccordionBodyPropsType) => {
     console.log('AccordionBody rendering');
     return (
         <ul>
-            {props.items.length || undefined
-                ? props.items.map(i => {
-                    return <li key={i.id}>{i.title}</li>
-                })
+            {props.items || undefined
+                ? props.items.map((i, index) => <li key={index} onClick={() => {props.onClick(i.value)}}>{i.title}</li>)
                 : <span>Empty list</span>}
         </ul>
     );

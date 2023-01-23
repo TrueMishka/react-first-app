@@ -13,6 +13,7 @@ const App = () => {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(3)
     const [collapsedValue, setCollapsedValue] = useState<boolean>(true)
     const [onValue, setOnValue] = useState(true);
+    const [selectValue, setSelectValue] = useState<string>('none')
     const items: ItemType[] = [
         {value: 1, title: 'Mishka'},
         {value: 2, title: 'Dimych'},
@@ -36,7 +37,7 @@ const App = () => {
             <UncontrolledOnOff defaultOn={true} onChange={() => {}}/>
             <UncontrolledOnOff defaultOn={true} onChange={() => {}}/>
             <h4>*--------*</h4>
-            <Select value={'none'} onChange={value => {}} items={items}/>
+            <Select value={selectValue} onChange={setSelectValue} items={items}/>
         </div>
     );
 }

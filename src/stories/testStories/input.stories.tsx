@@ -2,7 +2,7 @@ import React, {ChangeEvent, useRef, useState} from 'react';
 import {action} from "@storybook/addon-actions";
 
 export default {
-    title: 'input',
+    title: 'input-select-checkbox',
     //component:
 };
 

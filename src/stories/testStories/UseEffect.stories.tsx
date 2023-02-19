@@ -65,39 +65,3 @@ export const SetTimeoutExample = () => {
         </div>
     );
 };
-
-
-const generateTime = () => {
-    let currentTime = new Date()
-    return (`${
-        currentTime.getHours() >= 10
-            ? currentTime.getHours()
-            : '0' + currentTime.getHours()
-    }:${
-        currentTime.getMinutes() >= 10
-            ? currentTime.getMinutes()
-            : '0' + currentTime.getMinutes()
-    }:${
-        currentTime.getSeconds() >= 10
-            ? currentTime.getSeconds()
-            : '0' + currentTime.getSeconds()}`)
-}
-
-export const ClockExample = () => {
-
-    const [time, setTime] = useState(generateTime)
-
-    useEffect(() => {
-        setInterval(() => {
-            /*let currentTime = new Date()
-            setTime(`${currentTime.getHours()}:${currentTime.getMinutes()}:${currentTime.getSeconds()}`)*/
-            setTime(generateTime)
-        }, 1000)
-    }, [])
-
-    return (
-        <div>
-            Clock - {time}
-        </div>
-    )
-}
